@@ -12,3 +12,4 @@ run_playwright_tests:
   allow_failure: true
   tags:
       - it-dev
+      # test on all available runners
