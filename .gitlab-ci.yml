@@ -7,7 +7,7 @@ run_playwright_tests:
   script:
     - npm install
     - npx playwright install
-    - npx playwright test --project=core --grep=@UI --headed
+    - npx playwright test --project=core --grep=@UI
     - echo "https://$CI_PROJECT_NAMESPACE.gitlab.io/-/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/playwright-report/index.html"
   allow_failure: true
   tags:
