@@ -1,0 +1,14 @@
+stages:
+  - test
+
+run_playwright_tests:
+  stage: test
+  image: mcr.microsoft.com/playwright:v1.40.0-jammy
+  script:
+    - npm install
+    - npx playwright install
+    - npx playwright test --project=core --grep=@UI --headed
+    - echo "https://$CI_PROJECT_NAMESPACE.gitlab.io/-/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/playwright-report/index.html"
+  allow_failure: true
+  tags:
+      - it-dev
