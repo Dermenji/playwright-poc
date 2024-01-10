@@ -22,6 +22,19 @@ test.describe('Domain creation suite @UI', () => {
 
   });
 
+  test('Create Subdomains', async ({ pageManager }) => {
+
+    await test.step('Navigate to Websites page', async () => {
+      await pageManager.navigateTo().webSitesPage()
+    })
+
+    await test.step('Create domain', async () => {
+      await pageManager.onWebSitePage().openEditDNSpage(data.name)
+      await pageManager.onDNSRecordsPage().createDomain(data.name)
+    })
+
+  });
+
   test('Delete domain', async ({ pageManager }) => {
 
     await test.step('Navigate to Websites page', async () => {

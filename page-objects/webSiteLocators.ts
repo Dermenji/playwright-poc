@@ -11,4 +11,8 @@ export class WebSitePageLocators {
     getDeleteButtonXpath(name: string) {
         return `//*[contains (text(), '${name}')]/..//*[contains (@data-delete-url, '/rapi/domains')]`;
     }
+
+    getEditDnsXpath(name: string) {
+        return `//*[contains(text(), '${name}')]/..//li/a[contains (@href, '/edit-dns/')]`;
+    }
 }

@@ -27,6 +27,13 @@ export class WebSitePage extends HelperBase {
         });
     }
 
+
+    async openEditDNSpage(name: string) {
+        await this.page.click(this.locators.getDropdownButtonXpath(name));
+        await this.page.click(this.locators.getEditDnsXpath(name));
+
+    }
+
     async deleteDomain(name: string) {
         await this.page.click(this.locators.getDropdownButtonXpath(name));
         await this.page.click(this.locators.getDeleteButtonXpath(name));
