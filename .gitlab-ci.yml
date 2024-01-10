@@ -14,4 +14,4 @@ run_playwright_tests:
     #- mkdir $CI_PROJECT_NAME && cp $ARTIFACT $CI_PROJECT_NAME/.
   allow_failure: true
   tags:
-    - it-dev
+    - preprod
