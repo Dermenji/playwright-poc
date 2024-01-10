@@ -1,7 +1,9 @@
 stages:
   - test
+
 variables:
   ARTIFACT: "*.html"
+
 run_playwright_tests:
   stage: test
   image: mcr.microsoft.com/playwright:v1.40.0-jammy
@@ -11,7 +13,11 @@ run_playwright_tests:
     - npx playwright test --project=core --grep=@UI
     - ls -al
     - echo "copy artifact"
-    - mkdir $CI_PROJECT_NAME && cat "./playwright-report/index.html" > $CI_PROJECT_NAME/index.html
+    - mkdir $CI_PROJECT_NAME && cp "./playwright-report/index.html" $CI_PROJECT_NAME/index.html
   allow_failure: true
   tags:
     - preprod
+  artifacts:
+    paths:
+      - $CI_PROJECT_NAME/
+    expire_in: 7 days
