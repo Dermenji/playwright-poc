@@ -3,6 +3,7 @@ stages:
 
 variables:
   ARTIFACT: "*.html"
+  GREP_OPTION: "@UI"
 
 run_playwright_tests:
   stage: test
@@ -10,7 +11,7 @@ run_playwright_tests:
   script:
     - npm install
     - npx playwright install
-    - npx playwright test --project=core --grep=@UI
+    - npx playwright test --project=core --grep=$GREP_OPTION
     - ls -al
     - echo "copy artifact"
     - mkdir $CI_PROJECT_NAME && cp "./playwright-report/index.html" $CI_PROJECT_NAME/index.html
