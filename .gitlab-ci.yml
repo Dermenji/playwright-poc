@@ -1,6 +1,7 @@
 stages:
   - test
-
+variables:
+  ARTIFACT: "*.html"
 run_playwright_tests:
   stage: test
   image: mcr.microsoft.com/playwright:v1.40.0-jammy
@@ -8,7 +9,9 @@ run_playwright_tests:
     - npm install
     - npx playwright install
     - npx playwright test --project=core --grep=@UI
-    - echo "https://$CI_PROJECT_NAMESPACE.gitlab.io/-/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/playwright-report/index.html"
+    - ls -al
+    - echo "copy artifact"
+    - mkdir $CI_PROJECT_NAME && cat "./playwright-report/index.html" > $CI_PROJECT_NAME/index.html
   allow_failure: true
   tags:
-      - it-dev
+    - preprod
