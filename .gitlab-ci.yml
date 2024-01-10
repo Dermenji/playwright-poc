@@ -9,7 +9,7 @@ run_playwright_tests:
     - npm install
     - npx playwright install
     - npx playwright test --project=core --grep=@UI
-    - echo $CI_PROJECT_NAME/playwright-report/index.html"
+    - echo "$CI_PROJECT_NAME/playwright-report/index.html"
     #- echo "copy artifact"
     #- mkdir $CI_PROJECT_NAME && cp $ARTIFACT $CI_PROJECT_NAME/.
   allow_failure: true
