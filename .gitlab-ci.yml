@@ -11,7 +11,7 @@ run_playwright_tests:
     - npx playwright test --project=core --grep=@UI
     - ls -al ./playwright-report
     - echo "copy artifact"
-    - mkdir $CI_PROJECT_NAME && cat "./playwright-report/index.html" >  $ARTIFACT $CI_PROJECT_NAME/index.html
+    - mkdir $CI_PROJECT_NAME && "$CI_PROJECT_NAME/playwright-report/index.html" >  $ARTIFACT $CI_PROJECT_NAME/index.html
   allow_failure: true
   tags:
     - preprod
