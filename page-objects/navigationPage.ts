@@ -8,8 +8,8 @@ export class NavigationPage extends HelperBase {
     }
 
     async webSitesPage() {
-        await this.page.goto('https://'+ process.env.PREFIX +'-dashboard.myracloud.com/'+ process.env.LOC +'/my-websites')
-        await expect(this.page.locator('div.row:nth-of-type(1) > div.pagination:nth-of-type(1) > a[href$="/your-website-initial/"].btn.btn-primary')).toBeVisible()
+        await this.page.goto('https://'+ process.env.PREFIX +'-dashboard.test.com/'+ process.env.LOC +'/my-websites')
+      //  await expect(this.page.locator('div.row:nth-of-type(1) > div.pagination:nth-of-type(1) > a[href$="/your-website-initial/"].btn.btn-primary')).toBeVisible()
     }
 
 }

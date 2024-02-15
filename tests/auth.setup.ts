@@ -5,16 +5,16 @@ const authFile = '.auth/user.json'
 
 setup('authentication', async ({ page }) => {
     await page.goto('/')
-    await page.locator("[data-id='loginForm-input-name'], input[type='email']").fill('1002668-1000001@myracloud.com')
-    await page.locator("[data-id='loginForm-input-password'], input[type='password']").fill('MegaTron17!')
+    await page.locator("[data-id='loginForm-input-name'], input[type='email']").fill('test@test.com')
+    await page.locator("[data-id='loginForm-input-password'], input[type='password']").fill('TestPassword!')
     await page.locator("[data-id='loginForm-button-submit'], button[type='submit']").click()
-    // await expect(page.locator("#tfa-code")).toBeVisible()
+    await expect(page.locator("#tfa-code")).toBeVisible()
 
     await page.waitForTimeout(3000)
 
 
     const context = await request.newContext({
-        baseURL: 'https://' + process.env.PREFIX + '-users.myracloud.com',
+        baseURL: 'https://' + process.env.PREFIX + '-users.test.com',
     });
 
 

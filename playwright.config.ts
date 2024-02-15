@@ -35,12 +35,12 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'https://' + process.env.PREFIX + '-start.myracloud.com',
+    baseURL: 'https://' + process.env.PREFIX + '-start.test.com',
 
 
     httpCredentials: {
-      username: 'alexandr.dermenji.extern',
-      password: ']k846miu]2H/bg+Dg#g7',
+      username: 'test_username',
+      password: 'test_password',
     },
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
@@ -59,7 +59,7 @@ export default defineConfig({
 
     {
       name: 'api',
-      use: { baseURL: 'https://apiv2.myracloud.com' },
+      use: { baseURL: 'https://apiv2.test.com' },
     },
 
     /*
